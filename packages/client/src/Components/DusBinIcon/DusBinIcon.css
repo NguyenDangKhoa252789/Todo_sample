@@ -1,0 +1,18 @@
+.button-dusbin{
+    background-color: #EEEEEE;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    line-height: 20px;
+    padding: 10px 10px;
+    margin-left: 10px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+.button-dusbin:hover{
+    background-color: #f5f5f5;
+}
