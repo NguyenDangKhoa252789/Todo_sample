@@ -1,0 +1,23 @@
+li{
+    background-color:#FFFFFF;
+    list-style-type: none;
+    border-radius: 0.313rem;
+    padding: 0.063rem;
+    margin: 0.625rem 0.625rem 0.625rem -1.875rem;
+}
+li input:first-child{
+    margin: 0 0.313rem 0 0.625rem;
+    vertical-align: middle;
+}
+.place{
+    border: none;
+    outline: none;
+    margin-block: 0.875rem;
+}
+.container{
+    background-color:#ECEDF6;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1rem 0rem;
+    margin: 0.625rem -0.063rem -100% -9.375rem;
+    height: 11.875rem;
+}
