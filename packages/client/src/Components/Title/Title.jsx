@@ -1,9 +1,6 @@
-import React from 'react'
-import './Title.css'
+import "./Title.css";
 const Title = () => {
-  return (
-    <h1 className="title">TODO LIST</h1>
-  )
-}
+  return <h1 className="title">TODO LIST</h1>;
+};
 
-export default Title
+export default Title;

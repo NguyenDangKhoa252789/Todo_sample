@@ -1,19 +1,19 @@
 import React from "react";
-import './App.css'
+import "./App.css";
 
-import { Selectbox,Task,Title,Add_new_task_btn } from "./Components";
+import { Selectbox, Task, Title, AddNewBtn } from "./components";
 
 function App() {
   return (
     <React.Fragment>
-        <Title/>
+      <Title />
       <div>
-        <Add_new_task_btn/>
-        <Selectbox/>
+        <AddNewBtn />
+        <Selectbox />
       </div>
-        <Task/>
+      <Task />
     </React.Fragment>
-  )
+  );
 }
 
 export default App;

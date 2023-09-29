@@ -1,0 +1,20 @@
+{
+  "name": "todo_proj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "private": true,
+  "author": "",
+  "license": "",
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "all": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn dev:web\"",
+    "dev:web": "yarn workspace client dev",
+    "dev:server": "yarn workspace server dev"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
