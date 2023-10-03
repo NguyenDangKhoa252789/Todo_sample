@@ -1,0 +1,11 @@
+# WEBSITE
+
+URL=https://bidv.com.vn/vn/ty-gia-ngoai-te 
+
+
+# SERVER
+# PostgreSQL
+MYSQL_HOST=127.0.0.1
+MYSQL_USER=root
+MYSQL_PASSWORD=0338005958
+MYSQL_DB=pttkht_1
