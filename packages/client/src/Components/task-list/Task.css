@@ -1,0 +1,36 @@
+li input:first-child{
+    margin: 0 0.313rem 0 0.625rem;
+    vertical-align: middle;
+}
+.unCheckedChange{
+    background-color:#a7a7a7;
+    list-style-type: none;
+    border-radius: 0.313rem;
+    padding: 0.063rem;
+    margin: 0.625rem 00.625rem 0.125rem;
+}
+.checkedChange{
+    background-color: #FFFFFF;
+    list-style-type: none;
+    border-radius: 0.313rem;
+    padding: 0.063rem;
+    margin: 0.625rem 00.625rem 0.125rem;
+}
+.place{
+    background-color: #a7a7a7;
+    border: none;
+    outline: none;
+    margin-block: 0.875rem;
+}
+.place2{
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    margin-block: 0.875rem;
+}
+.container{
+    background-color:#ECEDF6;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1rem 0rem;
+    height: 11.875rem;
+}

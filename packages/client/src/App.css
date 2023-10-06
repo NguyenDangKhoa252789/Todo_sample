@@ -1,7 +1,4 @@
-:root{
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    position: fixed;
-    top: 15%;
-    left: 55%;
-    transform: translate(-50%,-50%);
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
 }
