@@ -1,11 +1,11 @@
-.selectbox{
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.25rem;
-    padding: 0.625rem 4.688rem 0.625rem 0.938rem;
-    margin: 0rem 0.625rem 0 15.5rem;
-    position: relative;
+.selectbox {
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  padding: 0.625rem 4.688rem 0.625rem 0.938rem;
+  margin-left: 16.3rem;
+  position: relative;
 }

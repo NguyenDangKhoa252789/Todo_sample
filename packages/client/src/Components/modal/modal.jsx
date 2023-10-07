@@ -3,7 +3,10 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AddNewBtn from "../Buttons/AddNewBtn";
 import Selectbox from "../selectbox";
-import './modal.css'
+import "./modal.css";
+import AddTodo from "../AddTodo/AddTodo";
+import TodoContext from "../../context/TodoContextProvider";
+import AddNewBtn2 from "../buttons/AddNewBtn2";
 
 const style = {
   position: "absolute",
@@ -16,18 +19,14 @@ const style = {
   p: 4,
 };
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
-  
-  function handleOpen() {
-    setOpen(true)
-  }
-  const handleClose = () => setOpen(false);
+  const { handleAddTodo, open, handleOpen, handleClose } =
+    React.useContext(TodoContext);
   // eslint-disable-next-line no-undef
 
   return (
     <div>
-      <AddNewBtn onClick={handleOpen}/>
-      <Selectbox/>
+      <AddNewBtn onClick={handleOpen} />
+      <Selectbox />
       <Modal
         open={open}
         onClose={handleClose}
@@ -35,10 +34,10 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-            {/* <input type="text" className="textbox"/><AddNewBtn text={'Add new'}/> */}
+          <AddTodo onAddTodo={handleAddTodo} />
+          <AddNewBtn2 text={"Cancel"} onClick={handleClose} />
         </Box>
       </Modal>
- 
     </div>
   );
 }

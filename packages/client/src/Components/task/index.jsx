@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import { PenButtons, TrashButtons } from "../buttons/Buttons";
+import "./task.css";
+import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 function Task({ todo }) {
-  // const[isChecked,setIsChecked]=useState(false);
-  // const[backGroundChange,setbackGroundChange]=useState('unCheckedChange');
-  // const[backGroundPlaceChange,setbackGroundPlaceChange]=useState('place');
-  // const handleCheckboxChange =()=>{
-  //   setIsChecked(!isChecked);
-  //   setbackGroundChange(!isChecked? 'checkedChange':'unCheckedChange');
-  //   setbackGroundPlaceChange(!isChecked ? 'place2':'place')
-  // }
+  const [isChecked, setIsChecked] = useState(false);
+  const unCheckedChange = isChecked ? "checkedChange" : "unCheckedChange";
+  const place = isChecked ? "place2" : "place";
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   return (
-    <label>
-      <div className="unCheckedChange">
-        <span>{todo.title}</span>
-      </div>
-    </label>
+    <div id={unCheckedChange}>
+      <input
+        type="checkbox"
+        name=""
+        id=""
+        checked={isChecked}
+        onChange={handleCheckboxChange}
+      />
+      <input type="text" name="" id="" value={todo.title} className={place} />
+      <PenButtons />
+      <TrashButtons />
+    </div>
   );
 }
 

@@ -5,10 +5,13 @@ import Title from "./Components/title";
 import BasicModal from "./Components/modal/modal";
 import { Grid } from "@mui/material";
 import TaskList from "./Components/task-list";
+import TodoContext, {
+  TodoContextProvider,
+} from "./context/TodoContextProvider";
 
 export default function App() {
   return (
-    <React.Fragment>
+    <TodoContextProvider>
       <Grid
         container
         justify="center"
@@ -19,6 +22,6 @@ export default function App() {
         <BasicModal />
         <TaskList />
       </Grid>
-    </React.Fragment>
+    </TodoContextProvider>
   );
 }

@@ -1,21 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import React from "react";
 import "./Task.css";
 import Task from "../task";
+import TodoContext from "../../context/TodoContextProvider";
 export default function TaskList() {
   // eslint-disable-next-line no-unused-vars
-  const [todoList, setTodoList] = useState([
-    { id: 0, title: "Buy milk", done: true },
-    { id: 1, title: "Eat tacos", done: false },
-    { id: 2, title: "Brew tea", done: false },
-  ]);
+  const { todoList } = React.useContext(TodoContext);
   return (
-    <ul className="container">
+    <div className="container">
       {todoList.map((todo) => (
-        <li key={todo.id} className="unCheckedChange">
+        <div key={todo.id}>
           <Task todo={todo} />
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
