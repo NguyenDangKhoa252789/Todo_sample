@@ -14,12 +14,10 @@ function Task({ todo }) {
     <div id={unCheckedChange}>
       <input
         type="checkbox"
-        name=""
-        id=""
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      <input type="text" name="" id="" value={todo.title} className={place} />
+      <input type="text" value={todo.title} className={place} />
       <PenButtons />
       <TrashButtons />
     </div>

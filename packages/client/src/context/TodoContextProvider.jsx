@@ -1,5 +1,4 @@
 import React, { createContext, useState, useCallback } from "react";
-import { useMemo } from "react";
 
 const TodoContext = createContext();
 
@@ -31,13 +30,15 @@ function TodoContextProvider(props) {
     ]);
   }
 
-  const userValue = useMemo(
-    () => ({ todoList, handleAddTodo, open, handleOpen, handleClose }),
-    [todoList, open]
-  );
+  // const userValue = useMemo(
+  //   () => ({ todoList, handleAddTodo, open, handleOpen, handleClose }),
+  //   [todoList, open]
+  // );
 
   return (
-    <TodoContext.Provider value={userValue}>
+    <TodoContext.Provider
+      value={{ todoList, handleAddTodo, open, handleOpen, handleClose }}
+    >
       {props.children}
     </TodoContext.Provider>
   );
