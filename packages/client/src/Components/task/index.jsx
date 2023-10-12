@@ -13,8 +13,12 @@ function Task({ todo, onDelete, onEdit }) {
   const place = isChecked ? "place2" : "place";
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-    setIsChecked(!todo.done);
+    // setIsChecked(!isChecked);
+    // setIsChecked(!todo.done);
+    const updatedDone = !isChecked;
+    setIsChecked(updatedDone);
+
+    onEdit(todo.id, updatedDone, editedTitle);
   };
 
   const handleEditClick = () => {
@@ -49,7 +53,7 @@ function Task({ todo, onDelete, onEdit }) {
           size={45}
         />
       ) : (
-        <input type="text" value={todo.title} className={place} size={45} />
+        <input type="text" value={editedTitle} className={place} size={45} />
       )}
       {isEditing ? (
         <SaveButtons onClick={handleSaveClick} />
