@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AddNewBtn from "../Buttons/AddNewBtn";
@@ -7,6 +8,7 @@ import "./modal.css";
 import AddTodo from "../AddTodo/AddTodo";
 import TodoContext from "../../context/TodoContextProvider";
 import AddNewBtn2 from "../buttons/AddNewBtn2";
+import TaskList from "../task-list";
 
 const style = {
   position: "absolute",
@@ -22,11 +24,12 @@ export default function BasicModal() {
   const { handleAddTodo, open, handleOpen, handleClose } =
     React.useContext(TodoContext);
   // eslint-disable-next-line no-undef
+  const [selectedFilter, setSelectedFilter] = useState("All");
 
   return (
     <div>
       <AddNewBtn onClick={handleOpen} />
-      <Selectbox />
+      <Selectbox onSelectFilter={setSelectedFilter} />
       <Modal
         open={open}
         onClose={handleClose}
@@ -38,6 +41,7 @@ export default function BasicModal() {
           <AddNewBtn2 text={"Cancel"} onClick={handleClose} />
         </Box>
       </Modal>
+      <TaskList selectedFilter={selectedFilter} />
     </div>
   );
 }

@@ -8,6 +8,19 @@ function TodoContextProvider(props) {
     { id: 1, title: "Eat tacosdwadawd", done: false },
     { id: 2, title: "Brew tea", done: false },
   ]);
+
+  const handleEditTodo = (taskId, editedTitle) => {
+    const updatedTodoList = todoList.map((todo) =>
+      todo.id === taskId ? { ...todo, title: editedTitle } : todo
+    );
+    setTodoList(updatedTodoList);
+  };
+
+  const handleDeleteTodo = (taskId) => {
+    const updatedTodoList = todoList.filter((todo) => todo.id !== taskId);
+    setTodoList(updatedTodoList);
+  };
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = useCallback(() => {
@@ -18,17 +31,17 @@ function TodoContextProvider(props) {
     setOpen(false);
   }, []);
 
-  function handleAddTodo(title) {
-    let nextId = 3;
+  const handleAddTodo = (title) => {
+    const nextId = todoList.length;
     setTodoList([
       ...todoList,
       {
-        id: nextId++,
+        id: nextId,
         title: title,
         done: false,
       },
     ]);
-  }
+  };
 
   // const userValue = useMemo(
   //   () => ({ todoList, handleAddTodo, open, handleOpen, handleClose }),
@@ -37,7 +50,15 @@ function TodoContextProvider(props) {
 
   return (
     <TodoContext.Provider
-      value={{ todoList, handleAddTodo, open, handleOpen, handleClose }}
+      value={{
+        todoList,
+        handleAddTodo,
+        open,
+        handleOpen,
+        handleClose,
+        handleDeleteTodo,
+        handleEditTodo,
+      }}
     >
       {props.children}
     </TodoContext.Provider>
