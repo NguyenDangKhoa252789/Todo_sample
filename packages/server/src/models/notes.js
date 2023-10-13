@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import { Status } from "../interface/enum";
+import { ObjectId } from "mongodb";
 const NoteSchema = new mongoose.Schema({
-  id: {
-    type: Number,
+  _id: {
+    type: ObjectId,
   },
   UserID: { type: String, required: true },
   name: { type: String },

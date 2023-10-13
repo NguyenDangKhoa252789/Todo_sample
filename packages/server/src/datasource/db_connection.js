@@ -18,5 +18,6 @@ async function dbConnect() {
     console.log(err.stack);
   }
 }
-
-export { dbConnect };
+const conn = await dbConnect();
+const database = conn.db("todo");
+export { dbConnect, database };
