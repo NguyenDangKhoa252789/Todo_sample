@@ -45,7 +45,7 @@ function Task({ todo, onDelete, onEdit }) {
         <input
           type="text"
           value={editedTitle}
-          className={"place2"}
+          className={"place3"}
           onChange={handleTitleChange}
           size={45}
         />

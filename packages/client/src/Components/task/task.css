@@ -10,6 +10,10 @@
   outline: none;
   margin-block: 0.875rem;
 }
+.place3 {
+  background-color: #ffffff;
+  margin-block: 0.875rem;
+}
 #unCheckedChange {
   background-color: #a7a7a7;
   border-radius: 0.313rem;
