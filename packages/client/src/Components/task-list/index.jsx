@@ -9,8 +9,8 @@ export default function TaskList({ selectedFilter }) {
   const { todoList, handleEditTodo, handleDeleteTodo } =
     React.useContext(TodoContext);
 
-  const handleEdit = (taskId, editedTitle) => {
-    handleEditTodo(taskId, editedTitle);
+  const handleEdit = (taskId, editedTitle, newDone) => {
+    handleEditTodo(taskId, editedTitle, newDone);
   };
 
   const handleDelete = (taskId) => {

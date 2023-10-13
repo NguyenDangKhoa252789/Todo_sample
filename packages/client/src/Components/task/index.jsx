@@ -13,12 +13,9 @@ function Task({ todo, onDelete, onEdit }) {
   const place = isChecked ? "place2" : "place";
 
   const handleCheckboxChange = () => {
-    // setIsChecked(!isChecked);
-    // setIsChecked(!todo.done);
-    const updatedDone = !isChecked;
-    setIsChecked(updatedDone);
-
-    onEdit(todo.id, updatedDone, editedTitle);
+    setIsChecked(!isChecked);
+    onEdit(todo.id, editedTitle, !isChecked);
+    setIsEditing(false);
   };
 
   const handleEditClick = () => {
@@ -26,7 +23,7 @@ function Task({ todo, onDelete, onEdit }) {
   };
 
   const handleSaveClick = () => {
-    onEdit(todo.id, editedTitle);
+    onEdit(todo.id, editedTitle, isChecked);
     setIsEditing(false);
   };
 

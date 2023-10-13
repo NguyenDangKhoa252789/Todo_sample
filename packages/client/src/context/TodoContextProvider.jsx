@@ -8,10 +8,11 @@ function TodoContextProvider(props) {
     { id: 1, title: "Eat tacosdwadawd", done: false },
     { id: 2, title: "Brew tea", done: false },
   ]);
+  console.log(todoList);
 
-  const handleEditTodo = (taskId, editedTitle) => {
+  const handleEditTodo = (taskId, editedTitle, newDone) => {
     const updatedTodoList = todoList.map((todo) =>
-      todo.id === taskId ? { ...todo, title: editedTitle } : todo
+      todo.id === taskId ? { ...todo, title: editedTitle, done: newDone } : todo
     );
     setTodoList(updatedTodoList);
   };
