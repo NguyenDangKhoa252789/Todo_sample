@@ -6,9 +6,11 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 function Task({ todo, onDelete, onEdit }) {
-  const [isChecked, setIsChecked] = useState(todo.done);
+  const [isChecked, setIsChecked] = useState(
+    todo.status === "Incomplete" ? true : false
+  );
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(todo.title);
+  const [editedTitle, setEditedTitle] = useState(todo.name);
   const unCheckedChange = isChecked ? "checkedChange" : "unCheckedChange";
   const place = isChecked ? "place2" : "place";
 

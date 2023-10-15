@@ -1,18 +1,14 @@
 import React, { createContext, useState, useCallback } from "react";
-
+import { TASKS } from "../constants";
 const TodoContext = createContext();
 
 function TodoContextProvider(props) {
-  const [todoList, setTodoList] = useState([
-    { id: 0, title: "Buy milk", done: true },
-    { id: 1, title: "Eat tacosdwadawd", done: false },
-    { id: 2, title: "Brew tea", done: false },
-  ]);
-  console.log(todoList);
+  const [todoList, setTodoList] = useState(TASKS);
 
   const handleEditTodo = (taskId, editedTitle, newDone) => {
+    const status = newDone ? "Completed" : "Incomplete";
     const updatedTodoList = todoList.map((todo) =>
-      todo.id === taskId ? { ...todo, title: editedTitle, done: newDone } : todo
+      todo.id === taskId ? { ...todo, name: editedTitle, status: status } : todo
     );
     setTodoList(updatedTodoList);
   };
