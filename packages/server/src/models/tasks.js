@@ -6,6 +6,8 @@ const TaskSchema = new mongoose.Schema({
     type: ObjectId,
   },
   user_ID: { type: String, required: true },
+  //id ?
+
   name: { type: String, required: true },
   created_date: { type: Date, required: true },
   started_date: { type: Date },

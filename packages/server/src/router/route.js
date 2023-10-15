@@ -22,7 +22,7 @@ route.delete("/task", controller.deleteTasks);
 //----------------------------------------------------------------
 route.get("/note", controller.getAllNotes);
 route.get("/note/:name", controller.getNoteByName);
-route.post("/note", controller.createNotes);
-route.put("/note", controller.updateNotes);
-route.delete("/note", controller.deleteNotes);
+route.post("/note", controller.createNote);
+route.put("/note", controller.updateNote);
+route.delete("/note", controller.deleteNote);
 export default route;

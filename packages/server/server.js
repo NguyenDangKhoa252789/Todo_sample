@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import route from "./src/router/route.js";
 import cors from "cors";
 import { database } from "./src/datasource/index.js";
+import swaggerSpec from "./src/router/swagger.js";
+import SwaggerUI from "swagger-ui-express";
 // -----------------------------------------------
 dotenv.config();
 const PORT = process.env.PORT ?? 5999;
@@ -14,8 +16,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/v2", route);
-app.use("/v1", route);
+app.use("/", route);
+//use swagger
+app.use("/api-docs", SwaggerUI.serve, SwaggerUI.setup(swaggerSpec));
 
 // -----------------------------------------------
 app.listen(PORT, () => {
