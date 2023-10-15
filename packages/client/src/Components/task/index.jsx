@@ -1,16 +1,17 @@
-import SaveButtons from "../buttons/SaveButtons";
-import TrashButtons from "../buttons/TrashButtons";
-import PenButtons from "../buttons/PenButtons";
-import "./task.css";
 import { useState } from "react";
+import ButtonDelete from "../buttons/ButtonDelete";
+import ButtonEdit from "../buttons/ButtonEdit";
+import ButtonSave from "../buttons/ButtonSave";
+import { Grid, TextField, Checkbox } from "@mui/material";
 
-// eslint-disable-next-line react/prop-types
 function Task({ todo, onDelete, onEdit }) {
-  const [isChecked, setIsChecked] = useState(todo.done);
+  // const [isChecked, setIsChecked] = useState(todo.done);
+  const [isChecked, setIsChecked] = useState(
+    todo.status === "Incomplete" ? false : true
+  );
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(todo.title);
-  const unCheckedChange = isChecked ? "checkedChange" : "unCheckedChange";
-  const place = isChecked ? "place2" : "place";
+  // const [editedTitle, setEditedTitle] = useState(todo.title);
+  const [editedTitle, setEditedTitle] = useState(todo.name);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -35,30 +36,50 @@ function Task({ todo, onDelete, onEdit }) {
     onDelete(todo.id);
   };
   return (
-    <div id={unCheckedChange}>
-      <input
+    <Grid
+      sx={{
+        background: isChecked ? "#ffffff" : "#a7a7a7",
+        borderRadius: " 0.313rem",
+        p: "1rem 1rem 1rem 0",
+        m: "0.625rem 00.625rem 0.125rem",
+        display: "flex",
+      }}
+    >
+      <Checkbox
         type="checkbox"
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
       {isEditing ? (
-        <input
-          type="text"
+        <TextField
+          size="small"
+          sx={{ width: "36rem" }}
           value={editedTitle}
-          className={"place3"}
           onChange={handleTitleChange}
-          size={45}
         />
       ) : (
-        <input type="text" value={editedTitle} className={place} size={45} />
+        // <input type="text" value={editedTitle} className={place} size={45} />
+        <Grid item xs={{ backgroundcolor: "#ffffff", my: "0.875rem" }}>
+          <div
+            style={{
+              width: "36rem", // Adjust the width as needed
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              marginTop: "0.7rem",
+            }}
+          >
+            {editedTitle}
+          </div>
+        </Grid>
       )}
       {isEditing ? (
-        <SaveButtons onClick={handleSaveClick} />
+        <ButtonSave onClick={handleSaveClick} />
       ) : (
-        <PenButtons onClick={handleEditClick} />
+        <ButtonEdit onClick={handleEditClick} />
       )}
-      <TrashButtons onClick={handleDeleteClick} />
-    </div>
+      <ButtonDelete onClick={handleDeleteClick} />
+    </Grid>
   );
 }
 

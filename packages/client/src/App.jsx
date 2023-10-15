@@ -4,7 +4,6 @@ import "./App.css";
 import Title from "./Components/title";
 import BasicModal from "./Components/modal/modal";
 import { Grid } from "@mui/material";
-import TaskList from "./Components/task-list";
 import TodoContext, {
   TodoContextProvider,
 } from "./context/TodoContextProvider";

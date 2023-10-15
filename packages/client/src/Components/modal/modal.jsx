@@ -2,23 +2,24 @@ import * as React from "react";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import AddNewBtn from "../Buttons/AddNewBtn";
+import AddNewBtn from "../buttons/AddNewBtn";
 import Selectbox from "../selectbox";
-import "./modal.css";
 import AddTodo from "../AddTodo/AddTodo";
 import TodoContext from "../../context/TodoContextProvider";
-import AddNewBtn2 from "../buttons/AddNewBtn2";
+import ButtonCancel from "../buttons/ButtonCancel";
 import TaskList from "../task-list";
+import { Grid } from "@mui/material";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 600,
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
+  display: "flex",
 };
 export default function BasicModal() {
   const { handleAddTodo, open, handleOpen, handleClose } =
@@ -27,9 +28,11 @@ export default function BasicModal() {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   return (
-    <div>
-      <AddNewBtn onClick={handleOpen} />
-      <Selectbox onSelectFilter={setSelectedFilter} />
+    <Grid>
+      <Grid sx={{ display: "flex" }}>
+        <AddNewBtn onClick={handleOpen} />
+        <Selectbox onSelectFilter={setSelectedFilter} />
+      </Grid>
       <Modal
         open={open}
         onClose={handleClose}
@@ -38,10 +41,10 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <AddTodo onAddTodo={handleAddTodo} />
-          <AddNewBtn2 text={"Cancel"} onClick={handleClose} />
+          <ButtonCancel onClick={handleClose} />
         </Box>
       </Modal>
       <TaskList selectedFilter={selectedFilter} />
-    </div>
+    </Grid>
   );
 }

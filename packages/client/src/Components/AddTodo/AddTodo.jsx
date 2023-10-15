@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import AddNewBtn2 from "../buttons/AddNewBtn2";
-import "./AddTodo.css";
+import ButtonSubmit from "../buttons/ButtonSubmit";
 import TodoContext from "../../context/TodoContextProvider";
+import { TextField } from "@mui/material";
 
 export default function AddTodo({ onAddTodo }) {
   const [title, setTitle] = useState("");
   const { handleClose } = React.useContext(TodoContext);
   return (
     <React.Fragment>
-      <input
-        className="textbox"
-        placeholder="Add todo"
+      <TextField
+        id="outlined-basic"
+        label="Add todo"
+        variant="outlined"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        fullWidth
       />
-      <AddNewBtn2
+      <ButtonSubmit
         onClick={() => {
           setTitle("");
           onAddTodo(title);

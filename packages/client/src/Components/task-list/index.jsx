@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import "./Task.css";
 import Task from "../task";
 import TodoContext from "../../context/TodoContextProvider";
+import Container from "@mui/material/Container";
 
 export default function TaskList({ selectedFilter }) {
   // eslint-disable-next-line no-unused-vars
@@ -21,20 +21,29 @@ export default function TaskList({ selectedFilter }) {
     if (selectedFilter === "All") {
       return true;
     } else if (selectedFilter === "Incomplete") {
-      return !task.done;
+      return task.status === "Incomplete";
     } else if (selectedFilter === "Completed") {
-      return task.done;
+      return task.status === "Completed";
     }
     return true;
   });
 
   return (
-    <div className="container">
+    <Container
+      sx={{
+        backgroundColor: "#ecedf6",
+        borderRadius: "1rem",
+        p: "0.625rem 1rem 2rem",
+        mt: "0.5rem",
+        maxheight: "100rem",
+        overflow: "auto",
+      }}
+    >
       {filteredTasks.map((todo) => (
         <div key={todo.id}>
           <Task todo={todo} onEdit={handleEdit} onDelete={handleDelete} />
         </div>
       ))}
-    </div>
+    </Container>
   );
 }
