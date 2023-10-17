@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
-import ButtonDelete from "../buttons/ButtonDelete";
-import ButtonEdit from "../buttons/ButtonEdit";
-import ButtonSave from "../buttons/ButtonSave";
+import ButtonDelete from "@components/buttons/ButtonDelete";
+import ButtonEdit from "@components/buttons/ButtonEdit";
+import ButtonSave from "@components/buttons/ButtonSave";
 import { Grid, TextField, Checkbox } from "@mui/material";
 
 function Task({ todo, handleDelete, handleEdit }) {

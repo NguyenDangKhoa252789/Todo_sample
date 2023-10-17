@@ -2,12 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import AddNewBtn from "../buttons/AddNewBtn";
-import Selectbox from "../selectbox";
-import AddTodo from "../AddTodo/AddTodo";
-import TodoContext from "../../context/TodoContextProvider";
-import ButtonCancel from "../buttons/ButtonCancel";
-import TaskList from "../task-list";
+import AddNewBtn from "@components/buttons/AddNewBtn";
+import Selectbox from "@components/selectbox";
+import AddTodo from "@components/add-todo/AddTodo";
+import TodoContext from "@context/TodoContextProvider";
+import ButtonCancel from "@components/buttons/ButtonCancel";
+import TaskList from "@components/task-list";
 import { Grid } from "@mui/material";
 
 const style = {
@@ -21,7 +21,7 @@ const style = {
   p: 4,
   display: "flex",
 };
-export default function BasicModal() {
+function TodoPage() {
   const { handleAddTodo, open, handleOpen, handleClose } =
     React.useContext(TodoContext);
   // eslint-disable-next-line no-undef
@@ -48,3 +48,4 @@ export default function BasicModal() {
     </Grid>
   );
 }
+export default TodoPage;

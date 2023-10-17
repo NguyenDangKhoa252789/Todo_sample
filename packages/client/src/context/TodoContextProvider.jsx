@@ -1,5 +1,5 @@
 import React, { createContext, useState, useCallback } from "react";
-import { TASKS } from "../constants";
+import { TASKS } from "@constants";
 const TodoContext = createContext();
 
 function TodoContextProvider(props) {

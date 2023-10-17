@@ -1,12 +1,10 @@
 /* eslint-disable no-undef */
 import React from "react";
 import "./App.css";
-import Title from "./Components/title";
-import BasicModal from "./Components/modal/modal";
+import Title from "@components/title";
+import BasicModal from "@pages/todo-management";
 import { Grid } from "@mui/material";
-import TodoContext, {
-  TodoContextProvider,
-} from "./context/TodoContextProvider";
+import { TodoContextProvider } from "@context/TodoContextProvider";
 
 export default function App() {
   return (

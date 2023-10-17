@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import Task from "../task";
-import TodoContext from "../../context/TodoContextProvider";
+import Task from "@components/task";
+import TodoContext from "@context/TodoContextProvider";
 import Container from "@mui/material/Container";
 
 export default function TaskList({ selectedFilter }) {

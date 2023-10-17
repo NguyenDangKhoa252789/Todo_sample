@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ButtonSubmit from "../buttons/ButtonSubmit";
-import TodoContext from "../../context/TodoContextProvider";
+import ButtonSubmit from "@components/buttons/ButtonSubmit";
+import TodoContext from "@context/TodoContextProvider";
 import { TextField } from "@mui/material";
 
 export default function AddTodo({ handleAddTodo }) {
