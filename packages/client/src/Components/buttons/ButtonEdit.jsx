@@ -1,5 +1,5 @@
 import { FaPen } from "react-icons/fa";
-import { IconButton } from "@mui/material";
+import { IconButton } from "@components/mui-components";
 
 const ButtonEdit = (props) => {
   return (

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Button } from "@mui/material";
+import { Button } from "@components/mui-components";
 
 const AddNewBtn = (props) => {
   // eslint-disable-next-line react/prop-types

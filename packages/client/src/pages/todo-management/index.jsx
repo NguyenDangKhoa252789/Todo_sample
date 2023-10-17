@@ -1,14 +1,12 @@
 import * as React from "react";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+import { Box, Modal, Grid } from "@components/mui-components";
 import AddNewBtn from "@components/buttons/AddNewBtn";
 import Selectbox from "@components/selectbox";
 import AddTodo from "@components/add-todo/AddTodo";
 import TodoContext from "@context/TodoContextProvider";
 import ButtonCancel from "@components/buttons/ButtonCancel";
 import TaskList from "@components/task-list";
-import { Grid } from "@mui/material";
 
 const style = {
   position: "absolute",

@@ -2,8 +2,7 @@ import { useCallback, useState } from "react";
 import ButtonDelete from "@components/buttons/ButtonDelete";
 import ButtonEdit from "@components/buttons/ButtonEdit";
 import ButtonSave from "@components/buttons/ButtonSave";
-import { Grid, TextField, Checkbox } from "@mui/material";
-
+import { Grid, Checkbox } from "@components/mui-components";
 function Task({ todo, handleDelete, handleEdit }) {
   // const [isChecked, setIsChecked] = useState(todo.done);
   const [isChecked, setIsChecked] = useState(

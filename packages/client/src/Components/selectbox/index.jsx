@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Select } from "@mui/material";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
+import {
+  Box,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+} from "@components/mui-components";
 const Selectbox = ({ setSelectedFilter }) => {
   const [filter, setFilter] = useState("All");
 

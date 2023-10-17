@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import Title from "@components/title";
 import BasicModal from "@pages/todo-management";
-import { Grid } from "@mui/material";
+import { Grid } from "@components/mui-components";
 import { TodoContextProvider } from "@context/TodoContextProvider";
 
 export default function App() {

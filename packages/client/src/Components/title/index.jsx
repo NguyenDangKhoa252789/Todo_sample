@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography } from "@components/mui-components";
 const Title = () => {
   return (
     <Typography variant="h2" gutterBottom color={"#656781"} fontWeight={1000}>
