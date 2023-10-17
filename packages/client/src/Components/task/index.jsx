@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ButtonDelete from "../buttons/ButtonDelete";
 import ButtonEdit from "../buttons/ButtonEdit";
 import ButtonSave from "../buttons/ButtonSave";
 import { Grid, TextField, Checkbox } from "@mui/material";
 
-function Task({ todo, onDelete, onEdit }) {
+function Task({ todo, handleDelete, handleEdit }) {
   // const [isChecked, setIsChecked] = useState(todo.done);
   const [isChecked, setIsChecked] = useState(
     todo.status === "Incomplete" ? false : true
@@ -15,25 +15,25 @@ function Task({ todo, onDelete, onEdit }) {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    onEdit(todo.id, editedTitle, !isChecked);
+    handleEdit(todo.id, editedTitle, !isChecked);
     setIsEditing(false);
   };
 
-  const handleEditClick = () => {
+  const handleEditClick = useCallback(() => {
     setIsEditing(true);
-  };
+  }, []);
 
   const handleSaveClick = () => {
-    onEdit(todo.id, editedTitle, isChecked);
+    handleEdit(todo.id, editedTitle, isChecked);
     setIsEditing(false);
   };
 
-  const handleTitleChange = (e) => {
+  const handleTitleChange = useCallback((e) => {
     setEditedTitle(e.target.value);
-  };
+  }, []);
 
   const handleDeleteClick = () => {
-    onDelete(todo.id);
+    handleDelete(todo.id);
   };
   return (
     <Grid

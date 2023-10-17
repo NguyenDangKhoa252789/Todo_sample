@@ -41,7 +41,11 @@ export default function TaskList({ selectedFilter }) {
     >
       {filteredTasks.map((todo) => (
         <div key={todo.id}>
-          <Task todo={todo} onEdit={handleEdit} onDelete={handleDelete} />
+          <Task
+            todo={todo}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
         </div>
       ))}
     </Container>

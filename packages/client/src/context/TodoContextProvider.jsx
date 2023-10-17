@@ -5,10 +5,12 @@ const TodoContext = createContext();
 function TodoContextProvider(props) {
   const [todoList, setTodoList] = useState(TASKS);
 
-  const handleEditTodo = (taskId, editedTitle, newDone) => {
-    const status = newDone ? "Completed" : "Incomplete";
+  const handleEditTodo = (taskId, editedTitle, status) => {
+    const statusValue = status ? "Completed" : "Incomplete";
     const updatedTodoList = todoList.map((todo) =>
-      todo.id === taskId ? { ...todo, name: editedTitle, status: status } : todo
+      todo.id === taskId
+        ? { ...todo, name: editedTitle, status: statusValue }
+        : todo
     );
     setTodoList(updatedTodoList);
   };
@@ -38,7 +40,6 @@ function TodoContextProvider(props) {
         status: "Incomplete",
       },
     ]);
-    console.log(todoList);
   };
 
   return (

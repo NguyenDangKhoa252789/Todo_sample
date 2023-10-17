@@ -31,7 +31,7 @@ export default function BasicModal() {
     <Grid>
       <Grid sx={{ display: "flex" }}>
         <AddNewBtn onClick={handleOpen} />
-        <Selectbox onSelectFilter={setSelectedFilter} />
+        <Selectbox setSelectedFilter={setSelectedFilter} />
       </Grid>
       <Modal
         open={open}
@@ -40,7 +40,7 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <AddTodo onAddTodo={handleAddTodo} />
+          <AddTodo handleAddTodo={handleAddTodo} />
           <ButtonCancel onClick={handleClose} />
         </Box>
       </Modal>

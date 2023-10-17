@@ -3,7 +3,7 @@ import ButtonSubmit from "../buttons/ButtonSubmit";
 import TodoContext from "../../context/TodoContextProvider";
 import { TextField } from "@mui/material";
 
-export default function AddTodo({ onAddTodo }) {
+export default function AddTodo({ handleAddTodo }) {
   const [title, setTitle] = useState("");
   const { handleClose } = React.useContext(TodoContext);
   return (
@@ -19,7 +19,7 @@ export default function AddTodo({ onAddTodo }) {
       <ButtonSubmit
         onClick={() => {
           setTitle("");
-          onAddTodo(title);
+          handleAddTodo(title);
           handleClose();
         }}
       />

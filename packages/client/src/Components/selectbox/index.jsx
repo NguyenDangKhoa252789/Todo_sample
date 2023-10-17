@@ -4,13 +4,13 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-const Selectbox = ({ onSelectFilter }) => {
+const Selectbox = ({ setSelectedFilter }) => {
   const [filter, setFilter] = useState("All");
 
   const handleFilterChange = (event) => {
     const selectedFilter = event.target.value;
     setFilter(selectedFilter);
-    onSelectFilter(selectedFilter);
+    setSelectedFilter(selectedFilter);
   };
 
   return (

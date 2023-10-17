@@ -8,10 +8,7 @@ const PORT = process.env.PORT;
 const uri = process.env.URI;
 let client;
 async function main() {
-  client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  client = new MongoClient(uri);
 
   try {
     await client.connect();
