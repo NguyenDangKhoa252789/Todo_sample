@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import ButtonDelete from "@components/buttons/ButtonDelete";
 import ButtonEdit from "@components/buttons/ButtonEdit";
 import ButtonSave from "@components/buttons/ButtonSave";
-import { Grid, Checkbox } from "@components/mui-components";
+import { Grid, Checkbox, TextField } from "@components/mui-components";
 function Task({ todo, handleDelete, handleEdit }) {
   // const [isChecked, setIsChecked] = useState(todo.done);
   const [isChecked, setIsChecked] = useState(
@@ -57,11 +57,10 @@ function Task({ todo, handleDelete, handleEdit }) {
           onChange={handleTitleChange}
         />
       ) : (
-        // <input type="text" value={editedTitle} className={place} size={45} />
         <Grid item xs={{ backgroundcolor: "#ffffff", my: "0.875rem" }}>
           <div
             style={{
-              width: "36rem", // Adjust the width as needed
+              width: "36rem",
               whiteSpace: "nowrap",
               overflow: "hidden",
               textOverflow: "ellipsis",

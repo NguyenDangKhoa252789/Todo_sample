@@ -7,6 +7,7 @@ import AddTodo from "@components/add-todo/AddTodo";
 import TodoContext from "@context/TodoContextProvider";
 import ButtonCancel from "@components/buttons/ButtonCancel";
 import TaskList from "@components/task-list";
+import Title from "@components/title";
 
 const style = {
   position: "absolute",
@@ -26,7 +27,14 @@ function TodoPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   return (
-    <Grid>
+    <Grid
+      container
+      justify="center"
+      alignItems={"center"}
+      direction={"column"}
+      sx={{ my: "5rem" }}
+    >
+      <Title />
       <Grid sx={{ display: "flex" }}>
         <AddNewBtn onClick={handleOpen} />
         <Selectbox setSelectedFilter={setSelectedFilter} />

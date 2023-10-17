@@ -35,8 +35,8 @@ export default function TaskList({ selectedFilter }) {
         borderRadius: "1rem",
         p: "0.625rem 1rem 2rem",
         mt: "0.5rem",
-        maxheight: "100rem",
         overflow: "auto",
+        width: "51.5rem",
       }}
     >
       {filteredTasks.map((todo) => (
