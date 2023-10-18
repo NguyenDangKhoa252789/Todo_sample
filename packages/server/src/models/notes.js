@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Status } from "../interface/enum";
+import Status from "./status.js";
 import { ObjectId } from "mongodb";
 const NoteSchema = new mongoose.Schema({
   _id: {
@@ -11,7 +11,7 @@ const NoteSchema = new mongoose.Schema({
   content: {
     type: String,
   },
-  status: { type: Status },
+  status: { type: String, enum: Status, default: Status.IN_PROGRESS },
 });
 const note = mongoose.model("Note", NoteSchema);
 export default note;

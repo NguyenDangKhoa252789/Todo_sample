@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import route from "./src/router/route.js";
 import cors from "cors";
 import { database } from "./src/datasource/index.js";
-import swaggerSpec from "./src/router/swagger.js";
+import options from "./src/docs/swagger.js";
 import SwaggerUI from "swagger-ui-express";
 // -----------------------------------------------
 dotenv.config();
@@ -16,17 +16,12 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/", route);
+route(app);
+
 //use swagger
-app.use("/api-docs", SwaggerUI.serve, SwaggerUI.setup(swaggerSpec));
+app.use("/api-docs", SwaggerUI.serve, SwaggerUI.setup(options));
 
 // -----------------------------------------------
-app.listen(PORT, () => {
-  console.log(
-    `⚡️[Todo_Sample]: Server is running at http://localhost:${PORT}`
-  );
-});
-
 //disconnect database ....
 process.on("SIGINT", function () {
   database.close(function () {
@@ -35,4 +30,9 @@ process.on("SIGINT", function () {
     );
     process.exit(0);
   });
+});
+app.listen(PORT, () => {
+  console.log(
+    `⚡️[Todo_Sample]: Server is running at http://localhost:${PORT}`
+  );
 });

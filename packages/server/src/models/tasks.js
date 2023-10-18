@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Status } from "./status.js";
+import Status from "./status.js";
 import { ObjectId } from "mongodb";
 const TaskSchema = new mongoose.Schema({
   _id: {
@@ -12,7 +12,7 @@ const TaskSchema = new mongoose.Schema({
   created_date: { type: Date, required: true },
   started_date: { type: Date },
   finish_date: { type: Date },
-  status: { type: Status },
+  status: { type: String, enum: Status, default: Status.IN_PROGRESS },
   description: { type: String },
 });
 const task = mongoose.model("Task", TaskSchema);

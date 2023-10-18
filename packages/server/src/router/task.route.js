@@ -1,0 +1,10 @@
+import { Router } from "express";
+import * as controller from "../controller/index.js";
+const taskRoute = Router();
+taskRoute.get("/", controller.getAllTasks);
+taskRoute.get("/:id", controller.getAllTasksOfUser);
+taskRoute.get("/:id/:name", controller.getTaskByName);
+taskRoute.post("/:id", controller.createTasks);
+taskRoute.put("/:id", controller.updateTasks);
+taskRoute.delete("/:id", controller.deleteTasks);
+export default taskRoute;
