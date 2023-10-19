@@ -15,7 +15,6 @@
     "dev:server": "yarn workspace server dev"
   },
   "dependencies": {
-    "concurrently": "^8.2.0",
-    "react-router-dom": "^6.17.0"
+    "concurrently": "^8.2.0"
   }
 }
