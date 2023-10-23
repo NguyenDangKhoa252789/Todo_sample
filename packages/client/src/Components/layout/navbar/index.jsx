@@ -1,5 +1,6 @@
 import { Box } from "@components/mui-components";
 import { NAVBAR_ITEMS } from "@constants";
+import { Link } from "react-router-dom";
 
 // const useStyles = makeStyles(() => ({
 //   sidebarContainer: {
@@ -30,17 +31,19 @@ export default function Navbar() {
     <Box sx={{ backgroundColor: "blue", width: "80%", height: "41rem" }}>
       {NAVBAR_ITEMS.map((item) => {
         return (
-          <Box
-            key={item.link}
-            sx={{
-              color: "white",
-              height: "2.5rem",
-              fontSize: "1.5rem",
-              padding: "0.375rem 0",
-            }}
-          >
-            {item.title}
-          </Box>
+          <Link to={item.link}>
+            <Box
+              key={item.link}
+              sx={{
+                color: "white",
+                height: "2.5rem",
+                fontSize: "1.5rem",
+                padding: "0.375rem 0",
+              }}
+            >
+              {item.title}
+            </Box>
+          </Link>
         );
       })}
     </Box>
