@@ -8,6 +8,7 @@ import TodoContext from "@context/TodoContextProvider";
 import ButtonCancel from "@components/buttons/ButtonCancel";
 import TaskList from "@components/task-list";
 import Title from "@components/title";
+import MainLayout from "@components/layout";
 
 const style = {
   position: "absolute",
@@ -27,31 +28,33 @@ function TodoPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   return (
-    <Grid
-      container
-      justify="center"
-      alignItems={"center"}
-      direction={"column"}
-      sx={{ my: "5rem" }}
-    >
-      <Title />
-      <Grid sx={{ display: "flex" }}>
-        <AddNewBtn onClick={handleOpen} />
-        <Selectbox setSelectedFilter={setSelectedFilter} />
-      </Grid>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+    <MainLayout>
+      <Grid
+        container
+        justify="center"
+        alignItems={"center"}
+        direction={"column"}
+        sx={{ my: "5rem" }}
       >
-        <Box sx={style}>
-          <AddTodo handleAddTodo={handleAddTodo} />
-          <ButtonCancel onClick={handleClose} />
-        </Box>
-      </Modal>
-      <TaskList selectedFilter={selectedFilter} />
-    </Grid>
+        <Title />
+        <Grid sx={{ display: "flex" }}>
+          <AddNewBtn onClick={handleOpen} />
+          <Selectbox setSelectedFilter={setSelectedFilter} />
+        </Grid>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <AddTodo handleAddTodo={handleAddTodo} />
+            <ButtonCancel onClick={handleClose} />
+          </Box>
+        </Modal>
+        <TaskList selectedFilter={selectedFilter} />
+      </Grid>
+    </MainLayout>
   );
 }
 export default TodoPage;
