@@ -1,12 +1,7 @@
-import userRoute from "./user.route.js";
-import taskRoute from "./task.route.js";
+import { userRoute } from "./user.route.js";
+import { taskRoute } from "./task.route.js";
 import noteRoute from "./note.route.js";
-const route = (app) => {
-  app.use("/user", userRoute);
-
-  app.use("/task", taskRoute);
-
-  app.use("/note", noteRoute);
+export const route = (app) => {
+    app.use("/user", userRoute);
+    app.use("/task", taskRoute);
 };
-
-export default route;

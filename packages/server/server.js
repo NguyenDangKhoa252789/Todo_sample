@@ -1,7 +1,7 @@
 //import libary
 import express from "express";
 import dotenv from "dotenv";
-import route from "./src/router/route.js";
+import { route } from "./src/router/route.js";
 import cors from "cors";
 import { database } from "./src/datasource/index.js";
 import options from "./src/docs/swagger.js";
