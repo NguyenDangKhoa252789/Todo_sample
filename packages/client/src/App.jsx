@@ -6,15 +6,17 @@ import { TodoContextProvider } from "@context/TodoContextProvider";
 import TodoPage from "@pages/todo-management/index";
 import Home from "@pages/Home-management/index";
 import LoginPage from "./pages/login-management";
+import NotFound from "./pages/not-found";
 
 export default function App() {
   return (
     <TodoContextProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tasks" element={<TodoPage />} />
+        <Route path="/todo" element={<TodoPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notes" element="" />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </TodoContextProvider>
   );

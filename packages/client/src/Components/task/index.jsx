@@ -35,48 +35,55 @@ function Task({ todo, handleDelete, handleEdit }) {
     handleDelete(todo.id);
   };
   return (
-    <Grid
-      sx={{
-        background: isChecked ? "#ffffff" : "#a7a7a7",
-        borderRadius: " 0.313rem",
-        p: "1rem 1rem 1rem 0",
-        m: "0.625rem 00.625rem 0.125rem",
-        display: "flex",
-      }}
-    >
-      <Checkbox
-        type="checkbox"
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-      />
-      {isEditing ? (
-        <TextField
-          size="small"
-          sx={{ width: "36rem" }}
-          value={editedTitle}
-          onChange={handleTitleChange}
+    <Grid container>
+      <Grid
+        item
+        xs={12}
+        sx={{
+          background: isChecked ? "#ffffff" : "#a7a7a7",
+          borderRadius: " 0.313rem",
+          p: "1rem ",
+          m: "0.625rem 00.625rem 0.125rem",
+          display: "flex",
+        }}
+      >
+        <Checkbox
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
         />
-      ) : (
-        <Grid item xs={{ backgroundcolor: "#ffffff", my: "0.875rem" }}>
-          <div
-            style={{
-              width: "36rem",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              marginTop: "0.7rem",
-            }}
+        {isEditing ? (
+          <TextField
+            size="small"
+            sx={{ width: "36rem" }}
+            value={editedTitle}
+            onChange={handleTitleChange}
+          />
+        ) : (
+          <Grid
+            item
+            xs={12}
+            sx={{ backgroundcolor: "#ffffff", my: "0.875rem" }}
           >
-            {editedTitle}
-          </div>
-        </Grid>
-      )}
-      {isEditing ? (
-        <ButtonSave onClick={handleSaveClick} />
-      ) : (
-        <ButtonEdit onClick={handleEditClick} />
-      )}
-      <ButtonDelete onClick={handleDeleteClick} />
+            <div
+              style={{
+                width: "36rem",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {editedTitle}
+            </div>
+          </Grid>
+        )}
+        {isEditing ? (
+          <ButtonSave onClick={handleSaveClick} />
+        ) : (
+          <ButtonEdit onClick={handleEditClick} />
+        )}
+        <ButtonDelete onClick={handleDeleteClick} />
+      </Grid>
     </Grid>
   );
 }
