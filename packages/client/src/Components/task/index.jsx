@@ -3,6 +3,7 @@ import ButtonDelete from "@components/buttons/ButtonDelete";
 import ButtonEdit from "@components/buttons/ButtonEdit";
 import ButtonSave from "@components/buttons/ButtonSave";
 import { Grid, Checkbox, TextField } from "@components/mui-components";
+import { Link } from "react-router-dom";
 function Task({ todo, handleDelete, handleEdit }) {
   // const [isChecked, setIsChecked] = useState(todo.done);
   const [isChecked, setIsChecked] = useState(
@@ -65,16 +66,21 @@ function Task({ todo, handleDelete, handleEdit }) {
             xs={12}
             sx={{ backgroundcolor: "#ffffff", my: "0.875rem" }}
           >
-            <div
-              style={{
-                width: "36rem",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
+            <Link
+              style={{ textDecoration: "none", color: "black", width: "100%" }}
+              to={"/tasks/" + todo.id}
             >
-              {editedTitle}
-            </div>
+              <div
+                style={{
+                  width: "36rem",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {editedTitle}
+              </div>
+            </Link>
           </Grid>
         )}
         {isEditing ? (

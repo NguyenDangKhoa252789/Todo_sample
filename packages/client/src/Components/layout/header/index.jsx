@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
-import { LOGIN_AND_SIGNUP } from "../../../constants/login_and_signup";
 import Menu from "./menu";
 function Header() {
   return (
@@ -24,11 +23,12 @@ function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             UTILS
           </Typography>
-          {LOGIN_AND_SIGNUP.map((item) => {
-            <Link key={item.Link} to={item.link}>
-              <Button color="inherit">{item.title}</Button>
-            </Link>;
-          })}
+          <Link to={"/login"}>
+            <Button sx={{ color: "white" }}>Login</Button>
+          </Link>
+          <Link to={"/user"}>
+            <Button sx={{ color: "white" }}>User</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>

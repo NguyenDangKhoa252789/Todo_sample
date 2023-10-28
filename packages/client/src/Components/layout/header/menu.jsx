@@ -9,9 +9,29 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { FiMenu } from "react-icons/fi";
+import { NAVBAR_ITEMS } from "../../../constants/common";
+import { AiOutlineHome } from "react-icons/ai";
+import { GrTask } from "react-icons/gr";
+import { BiNotepad } from "react-icons/bi";
+import { Link } from "react-router-dom";
 export default function Menu() {
   const [state, setState] = React.useState(false);
-
+  const handleDisplayIcon = React.useCallback((title) => {
+    switch (title) {
+      case "Home": {
+        return <AiOutlineHome size={30} />;
+      }
+      case "Tasks": {
+        return <GrTask size={30} />;
+      }
+      case "Notes": {
+        return <BiNotepad size={30} />;
+      }
+      default: {
+        return null;
+      }
+    }
+  }, []);
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -31,12 +51,17 @@ export default function Menu() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {["Home", "Todo", "Note", "Calendar"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? "ITEM1" : "ITEM2"}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {NAVBAR_ITEMS.map((item, index) => (
+          <ListItem key={item.title} disablePadding>
+            <Link
+              style={{ textDecoration: "none", color: "black", width: "100%" }}
+              to={item.link}
+            >
+              <ListItemButton>
+                <ListItemIcon>{handleDisplayIcon(item.title)}</ListItemIcon>
+                <ListItemText primary={item.title} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
